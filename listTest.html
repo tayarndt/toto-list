@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>listTest</title>
+    
+</head>
+<body>
+    <label for="name">Item Name:</label>
+    <input type="text" id="name">
+        <button >Add Item</button>
+
+<ul>
+
+</ul>
+
+<script>
+    const list = document.querySelector("ul");
+    const input = document.querySelector("input");
+    const button = document.querySelector("button");
+
+
+    button.onclick= function() {
+        let item = input.value;
+        input.value = "";
+        const listItem = document.createElement("li");
+        const listText = document.createElement("li");
+        const listBtn = document.createElement("button");
+        listItem.appendChild(listText);
+        listText.textContent = item;
+        listItem.appendChild(listBtn);
+        listBtn.textContent="delete";
+        list.appendChild(listItem);
+
+
+        listBtn.onclick = function(e) {
+            list.removeChild(item);
+        }
+    }
+</script>
+</body>
+</html>
