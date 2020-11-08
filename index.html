@@ -21,7 +21,7 @@
     <!-- start the main grid system for the app -->
     <div class="container">
         <div class="row">
-            <div class="col"-sm-6>
+            <div class="col-sm-6">
                 <h1>Welcome</h1>
                 <p>Welcome to the todo list. Currently, adding and deleting items is supported.</p>
                 <label for="name">Item Name:</label>
@@ -31,7 +31,7 @@
 
             <div class="col-sm-6">
                 <!-- list items will be in -->
-                <ul >
+                <ul>
 
                 </ul>
             </div>
@@ -51,22 +51,25 @@
         const listItem = document.createElement("li");
         const listText = document.createElement("li");
         const listBtn = document.createElement("button");
-        let editInput = document.createElement("input");
-        let editButton = document.createElement("button");
-        editInput.type = "text";
-    editButton.innerText = "Edit";
-    editButton.className = "edit";
+        const editForm = document.createElement("input");
+        const editBtn = document.createElement("button")
+
         listItem.appendChild(listText);
         listText.textContent = item;
         listItem.appendChild(listBtn);
         listBtn.textContent="delete";
+        listItem.appendChild(editForm);
+        listItem.appendChild(editBtn);
+        editBtn.textContent="edit";
         list.appendChild(listItem);
-        listItem.appendChild(editInput);
-    listItem.appendChild(editButton);
 
         listBtn.onclick = function(e) {
             list.removeChild(listItem);
             alert("The item was deleted from your list");
+            return listItem;
+        }
+        editBtn.onclick = function(e) {
+            alert("The item was changed");
             return listItem;
         }
     }
